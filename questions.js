@@ -1,149 +1,49 @@
 var questions = [
-    {
-      title: "Commonly used data types DO NOT include:",
-      choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "alerts"
-    },
-    {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
-    },
-   
-   ];
-
-var playButton = document.querySelector("#play");
-var secondsDisplay = document.querySelector("#seconds");
-
-var totalSeconds = 0;
-var secondsElapsed = 0;
-var status = "Working";
-var interval;
-
-getTimePreferences();
-
-// function getFormattedMinutes() {
-//   var secondsLeft = totalSeconds - secondsElapsed;
-
-//   var minutesLeft = Math.floor(secondsLeft / 75);
-
-//   var formattedMinutes;
-
-//   if (minutesLeft < 10) {
-//     formattedMinutes = "0" + minutesLeft;
-//   } else {
-//     formattedMinutes = minutesLeft;
-//   }
-
-//   return formattedMinutes;
-// }
-
-function getFormattedSeconds() {
-  var secondsLeft = (totalSeconds - secondsElapsed) % 75;
-
-  var formattedSeconds;
-
-  if (secondsLeft < 10) {
-    formattedSeconds = "0" + secondsLeft;
-  } else {
-    formattedSeconds = secondsLeft;
+  {
+      question: "Commonly used data types DO NOT include:",
+      answers: [
+          {text: "strings", correct: false }, 
+          {text: "booleans", correct: false} ,
+          {text: "alerts", correct: true },
+          {text: "numbers", correct: false }
+      ]
+  },
+  {
+      question: "The condition in an if / else statement is enclosed within ____.",
+      answers: [
+          {text: "quotes", correct: false },
+          {text: "curly brackets", correct: false },
+          {text: "parentheses", correct: true },
+          {text: "square brackets", correct: false }
+      ]
+  },
+  {
+      question: "Select a String function that creates a string and display in a big font as if it were in a tag?",
+      answers: [
+          {text: "big()", correct: true },
+          {text: "anchor()", correct: false },
+          {text: "italics()", correct: false},
+          {text: "blink()", correct: false}
+      ]
+  },
+  {
+      question:"What is the function of Array object that runs through each element of the array?",
+      answers: [
+          {text: "forEach()", correct: true },
+          {text: "filter()", correct: false },
+          {text: "every()", correct: false },
+          {text: "concat()", correct: false }
+      ]
+  },
+  {
+      question: "What is the function of Array object that adds and/or removes elements from an array?",
+      answers: [
+          {text: "unshift()", correct: false },
+          {text: "sort()", correct: false },
+          {text: "toSource()", correct: false },
+          {text: "splice()", correct: true }
+      ]
   }
+  ];
 
-  return formattedSeconds;
-}
-
-function setTime() {
-  var minutes;
-
-  if (status === "Working") {
-    minutes = workMinutesInput.value.trim();
-  } else {
-    minutes = restMinutesInput.value.trim();
-  }
-
-  clearInterval(interval);
-  totalSeconds = minutes * 60;
-}
-
-function renderTime() {
-  minutesDisplay.textContent = getFormattedMinutes();
-  secondsDisplay.textContent = getFormattedSeconds();
-
-  if (secondsElapsed >= totalSeconds) {
-    if (status === "Working") {
-      alert("Time for a break!");
-    } else {
-      alert("Time to get back to work!");
-    }
-
-    stopTimer();
-  }
-}
-
-function startTimer() {
-  setTime();
-
-  interval = setInterval(function() {
-    secondsElapsed++;
-    renderTime();
-  }, 1000);
-}
-
-function pauseTimer() {
-  clearInterval(interval);
-  renderTime();
-}
-
-function stopTimer() {
-  secondsElapsed = 0;
-  setTime();
-  renderTime();
-}
-
-function toggleStatus(event) {
-  var checked = event.target.checked;
-
-  if (checked) {
-    status = "Working";
-  } else {
-    status = "Resting";
-  }
-
-  statusSpan.textContent = status;
-
-  secondsElapsed = 0;
-  setTime();
-  renderTime();
-}
-
-function getTimePreferences() {
-  var preferences = JSON.parse(localStorage.getItem("preferences"));
-
-  if (preferences) {
-    if (preferences.workMinutes) {
-      workMinutesInput.value = preferences.workMinutes;
-    }
-
-    if (preferences.restMinutes) {
-      restMinutesInput.value = preferences.restMinutes;
-    }
-  }
-
-  setTime();
-  renderTime();
-}
-
-function setTimePreferences() {
-  localStorage.setItem(
-    "preferences",
-    JSON.stringify({
-      workMinutes: workMinutesInput.value.trim(),
-      restMinutes: restMinutesInput.value.trim()
-    })
-  );
-}
-
-playButton.addEventListener("click", startTimer);
-pauseButton.addEventListener("click", pauseTimer);
-stopButton.addEventListener("click", stopTimer);
-statusToggle.addEventListener("change", toggleStatus);
+console.log(this)
