@@ -6,25 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coding Quiz Challenge</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link src="index.css">
     <script src="questions.js"></script>
+    <script>src="index.js"</script>
+
 </head>
 <body>
-    <h1>Coding Quiz Challenge</h1>
-<!-- This Div will change to show questions -->
+  <div class="card">
+    <h1 style="text-align: center;">Coding Quiz Challenge</h1>
 
-    <div id = "startbutton">
-      <button id="start">Start Quiz</button>
-    </div>
-    <div id="questions">
-        
-    </div>
+    <!-- timer and high score -->
+
+<div class="container">
+  <span class="badge badge-pill badge-primary" id="timer">timer: 0 sec</span>
+  <span class="badge badge-pill badge-success" id="high-score">High Score: 0</span>
+</div>
+
+    <!-- start quiz -->
+
+      <button id="play">Start Quiz</button>
+
+    <!-- questions -->
+
+    <div class="card">
+        <div class="card-body">
+          <div id="questions">QUIZ QUESTIONS</div>
+           <div id="answers" class="btn">
+              <button type="button" class="btn btn-outline-info">A</button>
+              <button type="button" class="btn btn-outline-info">B</button>
+              <button type="button" class="btn btn-outline-info">C</button>
+              <button type="button" class="btn btn-outline-info">D</button>
+        </div>
+      </div>
+  </div>
+
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
 </body>
 </html>
 
-
-<script>src="index.js"</script>
 
 <!-- //* Play proceeds as follows:
 

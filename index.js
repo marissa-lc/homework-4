@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
     
-  $("#start").click(function(){
+  $("#play").click(function(){
       $("div").remove("");
     });
 
